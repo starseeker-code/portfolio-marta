@@ -1,16 +1,19 @@
-import React from 'react';
-import { Hero, About, Services, Gallery, Testimonials, Contact } from '../sections';
+import { Navbar, Hero, About, Services, Gallery, Testimonials, Contact, Footer } from '../sections';
 
 const LandingPage = () => {
   return (
-    <main className="min-h-screen bg-white">
-      <Hero />
-      <About />
-      <Services />
-      <Gallery />
-      <Testimonials />
-      <Contact />
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Gallery />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 };
 
