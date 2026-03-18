@@ -91,7 +91,7 @@ const Services = () => (
           <div className="section-tag justify-center">Lo que ofrezco</div>
         </SprayHeading>
         <p className="text-ink-muted max-w-sm mx-auto font-body mt-4 text-sm">
-          Trabajo premium, sin rollos. Cada servicio hecho como Dios manda o no se hace.
+          Trabajo premium, sin rollos. Cada servicio hecho como toca o no se hace.
         </p>
       </RevealOnScroll>
 
@@ -110,7 +110,7 @@ const Services = () => (
               {s.hot && (
                 <div className="absolute -top-3 left-5 bg-neon-pink text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest"
                      style={{ boxShadow: '0 0 14px rgba(255,20,147,0.6)' }}>
-                  ⚡ La Más Pedida
+                  ⚡ Popular
                 </div>
               )}
 

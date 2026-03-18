@@ -2,10 +2,10 @@ import RevealOnScroll from '../components/RevealOnScroll';
 import SprayHeading from '../components/SprayHeading';
 
 const highlights = [
-  { icon: '🎓', title: 'Certificada',        desc: 'Técnica certificada internacionalmente. Formación avanzada en gel, acrílicas y nail art — sin atajos, solo talento.' },
-  { icon: '🎨', title: 'Arte sin límites',   desc: 'De lo minimalista al street art en tus uñas. Si lo imaginas, ella lo pinta.' },
+  { icon: '🎓', title: 'Certificada',        desc: 'Técnica certificada. Formación avanzada en gel, acrílicas y nail art — sin atajos nena, solo talento y mucha pasión.' },
+  { icon: '🎨', title: 'Arte sin límites',   desc: 'Tu me dices lo que quieres. Te hago lo más sencillo y lo que no te imaginas.' },
   { icon: '💎', title: 'Solo lo mejor',      desc: 'Productos de primera línea, exclusivamente. Lo barato no toca mis uñas ni las tuyas. La calidad no se negocia.' },
-  { icon: '⛓️', title: 'Experiencia real',  desc: 'Más de 8 años en esto. Cientos de clientas, miles de trabajos. Sabe perfectamente lo que hace.' },
+  { icon: '⛓️', title: 'Experiencia real',  desc: 'Más de 8 años en esto. Cientos de clientas, miles de trabajos. Esto es mi vida y se nota.' },
 ];
 
 const Drips = () => (
@@ -51,18 +51,18 @@ const About = () => (
 
           <div className="border-l-4 border-neon-pink pl-5 mb-5" style={{ boxShadow: '-4px 0 22px rgba(255,20,147,0.22)' }}>
             <p className="text-white/85 text-base md:text-lg leading-relaxed font-body">
-              Soy <span className="marta-tag">Marta</span> — artista de uñas, creativa, y perfeccionista sin remedio.
-              8 años en esto, con base en Albacete. Lo mediocre no va conmigo.
+              Soy <span className="marta-tag">Marta</span> — artista de uñas, chica creativa, y perfeccionista sin remedio.
+              2 años en esto, con base en Albacete. Lo mediocre no va conmigo.
             </p>
           </div>
 
           <p className="text-ink-muted leading-relaxed mb-4 font-body text-sm md:text-base">
-            Cada trabajo que hago es una declaración. Minimalista o explosivo, con tus uñas cuento tu historia.
-            Yo soy la que lo plasma en el lienzo.
+            Cada trabajo que hago es una declaración. No doy cualquier servicio, con tus uñas cuento tu historia.
+            Hazte una sesión y verás como hablan de tus manos.
           </p>
           <p className="text-ink-muted leading-relaxed mb-8 font-body text-sm md:text-base">
             Gel, acrílicas, nail art, pedicuras — todo con precisión, productos premium
-            y pasión de verdad. Sin prisas. Sin compromisos. Solo resultados que marcan la diferencia.
+            y pasión de verdad. Sin prisas. Sin compromisos. Hago la diferencia.
           </p>
 
           <a href="#services"

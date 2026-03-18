@@ -52,10 +52,10 @@ const Gallery = () => {
         {/* Header */}
         <RevealOnScroll className="text-center mb-10">
           <SprayHeading>
-            <div className="section-tag justify-center">My Work</div>
+            <div className="section-tag justify-center">Que hago</div>
           </SprayHeading>
           <p className="text-ink-muted max-w-sm mx-auto font-body mt-4 text-sm">
-            Every set is unique. Browse and get inspired.
+            Cada trabajo es único. Nadie va a tratar tus uñas igual
           </p>
         </RevealOnScroll>
 

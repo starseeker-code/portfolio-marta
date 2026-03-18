@@ -151,7 +151,7 @@ const Hero = ({ introComplete = false }: { introComplete?: boolean }) => {
           >
             Artista de Uñas Profesional ·{' '}
             <span style={{ color: '#FF69B4', fontStyle: 'italic', fontWeight: 700 }}>
-              donde la calle se viste de gala
+              la EME que hace maravillas en esas manos
             </span>
           </p>
           <p
@@ -174,7 +174,7 @@ const Hero = ({ introComplete = false }: { introComplete?: boolean }) => {
                 boxShadow: '0 0 28px rgba(255,20,147,0.55)',
               }}
             >
-              Pide tu Cita ⚡
+              Pedir Cita ⚡
             </a>
             <a
               href="#services"

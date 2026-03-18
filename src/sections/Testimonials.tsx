@@ -69,7 +69,7 @@ const Testimonials = () => (
           <div className="section-tag justify-center">Las Clientas</div>
         </SprayHeading>
         <p className="text-ink-muted max-w-sm mx-auto font-body mt-4 text-sm">
-          No te fíes solo de mi palabra — hablan ellas.
+          No es sólo mi palabra — que te cuenten ellas
         </p>
       </RevealOnScroll>
 
