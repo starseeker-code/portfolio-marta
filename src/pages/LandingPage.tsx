@@ -9,8 +9,6 @@ const LandingPage = () => {
   const audioRef       = useRef<HTMLAudioElement>(null);
   const fadingRef      = useRef(false);
   const [playing,       setPlaying]       = useState(false);
-  const [currentTime,   setCurrentTime]   = useState(0);
-  const [duration,      setDuration]      = useState(0);
   const [introVisible,  setIntroVisible]  = useState(true);
   const [introComplete, setIntroComplete] = useState(false);
 
@@ -35,7 +33,6 @@ const LandingPage = () => {
 
   const handleTimeUpdate = () => {
     const time = audioRef.current?.currentTime ?? 0;
-    setCurrentTime(time);
     if (time >= FADE_START_S && !fadingRef.current) {
       fadingRef.current = true;
       startFadeOut();
@@ -61,7 +58,7 @@ const LandingPage = () => {
         ref={audioRef}
         src="/music/track.mp3"
         onTimeUpdate={handleTimeUpdate}
-        onLoadedMetadata={() => setDuration(audioRef.current?.duration ?? 0)}
+        onLoadedMetadata={() => {}}
         onEnded={() => setPlaying(false)}
         preload="auto"
       />
