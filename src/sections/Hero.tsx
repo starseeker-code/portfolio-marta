@@ -149,16 +149,16 @@ const Hero = ({ introComplete = false }: { introComplete?: boolean }) => {
             className="text-base md:text-lg font-body mt-5 md:mt-10 mb-1"
             style={{ color: 'rgba(255,182,193,0.80)', animation: 'floatIn 0.5s ease forwards 1.85s', opacity: 0 }}
           >
-            Professional Nail Artist ·{' '}
+            Artista de Uñas Profesional ·{' '}
             <span style={{ color: '#FF69B4', fontStyle: 'italic', fontWeight: 700 }}>
-              where the street meets glam
+              donde la calle se viste de gala
             </span>
           </p>
           <p
             className="text-xs md:text-sm mb-8 font-body"
             style={{ color: 'rgba(255,255,255,0.30)', animation: 'floatIn 0.5s ease forwards 2.0s', opacity: 0 }}
           >
-            Gel · Acrylics · Nail Art · Pedicures — Albacete
+            Gel · Acrílicas · Nail Art · Pedicuras — Albacete
           </p>
 
           {/* CTAs — full width on mobile */}
@@ -174,14 +174,14 @@ const Hero = ({ introComplete = false }: { introComplete?: boolean }) => {
                 boxShadow: '0 0 28px rgba(255,20,147,0.55)',
               }}
             >
-              Book an Appointment ⚡
+              Pide tu Cita ⚡
             </a>
             <a
               href="#services"
               className="flex items-center justify-center gap-2 font-bold text-sm tracking-wider uppercase px-8 py-4 border-2 transition-all duration-200 active:bg-neon-pink/15"
               style={{ borderColor: 'rgba(255,20,147,0.6)', color: '#FF69B4' }}
             >
-              View Services
+              Ver Servicios
             </a>
           </div>
 
@@ -190,9 +190,9 @@ const Hero = ({ introComplete = false }: { introComplete?: boolean }) => {
             className="grid grid-cols-3 gap-4 max-w-xs"
             style={{ animation: 'floatIn 0.5s ease forwards 2.35s', opacity: 0 }}
           >
-            <StatCounter value={500} suffix="+"  label="Clients"  delay={0}   />
-            <StatCounter value={5}   suffix="★"  label="Rating"   delay={150} />
-            <StatCounter value={8}   suffix="+"  label="Years"    delay={280} />
+            <StatCounter value={500} suffix="+"  label="Clientas"  delay={0}   />
+            <StatCounter value={5}   suffix="★"  label="Nota"      delay={150} />
+            <StatCounter value={8}   suffix="+"  label="Años"      delay={280} />
           </div>
         </div>
 

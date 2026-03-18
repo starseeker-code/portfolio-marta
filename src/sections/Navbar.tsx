@@ -32,11 +32,11 @@ const Navbar = ({ playing, onToggle, currentTime, duration }: NavbarProps) => {
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   const navLinks = [
-    { href: '#about',        label: 'The Artist' },
-    { href: '#services',     label: 'Services'   },
-    { href: '#gallery',      label: 'The Work'   },
-    { href: '#testimonials', label: 'Reviews'    },
-    { href: '#contact',      label: 'Book'       },
+    { href: '#about',        label: 'Quien Soy' },
+    { href: '#services',     label: 'Que Hago'  },
+    { href: '#gallery',      label: 'Mi Trabajo' },
+    { href: '#testimonials', label: 'Lo que dicen de mi'    },
+    { href: '#contact',      label: 'Pide Cita'       },
   ];
 
   return (
@@ -58,7 +58,7 @@ const Navbar = ({ playing, onToggle, currentTime, duration }: NavbarProps) => {
             MARTA
           </span>
           <span className="text-white/30 font-bold">★</span>
-          <span className="font-display text-xl text-white/60 leading-none">NAILS</span>
+          <span className="font-display text-xl text-white/60 leading-none">UÑAS</span>
         </a>
 
         {/* Desktop Nav */}
@@ -83,7 +83,7 @@ const Navbar = ({ playing, onToggle, currentTime, duration }: NavbarProps) => {
             className="inline-flex items-center gap-2 text-white font-bold text-xs tracking-widest uppercase px-6 py-2.5 border border-neon-pink hover:bg-neon-pink transition-all duration-200"
             style={{ boxShadow: '0 0 14px rgba(255,20,147,0.35)' }}
           >
-            Book Now ⚡
+            Pide Cita ⚡
           </a>
         </div>
 
@@ -120,16 +120,6 @@ const Navbar = ({ playing, onToggle, currentTime, duration }: NavbarProps) => {
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href="#contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="inline-block border border-neon-pink text-white font-bold text-xs tracking-widest uppercase px-6 py-3"
-                style={{ boxShadow: '0 0 14px rgba(255,20,147,0.35)' }}
-              >
-                Book Now ⚡
-              </a>
-            </li>
           </ul>
         </div>
       )}

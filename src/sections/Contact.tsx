@@ -4,27 +4,27 @@ import SprayHeading from '../components/SprayHeading';
 const contactInfo = [
   {
     icon: '📍',
-    title: 'Location',
-    content: 'Carrer de la Bellesa 24, Barcelona',
-    sub: 'Near Passeig de Gràcia · Appointment only',
+    title: 'Ubicación',
+    content: 'Albacete',
+    sub: 'Solo con cita previa',
   },
   {
     icon: '⏰',
-    title: 'Hours',
-    content: 'Mon – Sat: 9:00 – 20:00',
-    sub: 'Sunday by appointment only',
+    title: 'Horario',
+    content: 'Lun – Sáb: 9:00 – 20:00',
+    sub: 'Domingos solo con cita previa',
   },
   {
     icon: '📱',
-    title: 'Phone & WhatsApp',
+    title: 'Teléfono y WhatsApp',
     content: '+34 612 345 678',
-    sub: 'WhatsApp is fastest — I reply within hours',
+    sub: 'WhatsApp es lo más rápido — respondo en horas',
   },
   {
     icon: '📸',
     title: 'Instagram',
-    content: '@martanails_bcn',
-    sub: 'DM for bookings, inspo, or questions',
+    content: '@martanails_abcte',
+    sub: 'DM para citas, inspiración o lo que necesites',
   },
 ];
 
@@ -65,10 +65,10 @@ const Contact = () => (
       {/* Header */}
       <RevealOnScroll className="text-center mb-10">
         <SprayHeading>
-          <div className="section-tag justify-center">Get In Touch</div>
+          <div className="section-tag justify-center">Contacta</div>
         </SprayHeading>
         <p className="text-ink-muted max-w-sm mx-auto font-body mt-4 text-sm">
-          Hit me up, pick your slot, and let's make it happen.
+          Escríbeme, elige tu hueco y lo hacemos realidad.
         </p>
       </RevealOnScroll>
 
@@ -84,10 +84,10 @@ const Contact = () => (
             boxShadow: '0 0 28px rgba(255,20,147,0.55)',
           }}
         >
-          📅 Book an Appointment
+          📅 Pedir Cita
         </a>
         <p className="text-center text-[10px] text-white/25 font-body mt-2 uppercase tracking-widest">
-          Opens booking calendar · Picks available slots automatically
+          Abre el calendario · Elige tu hueco disponible
         </p>
       </RevealOnScroll>
 
@@ -115,7 +115,7 @@ const Contact = () => (
 
       {/* Social buttons */}
       <RevealOnScroll delay={120}>
-        <p className="font-bold text-white/35 text-[10px] tracking-widest uppercase mb-3 font-body text-center">Follow the work</p>
+        <p className="font-bold text-white/35 text-[10px] tracking-widest uppercase mb-3 font-body text-center">Sígueme</p>
         <div className="flex gap-3">
           {[
             { label: 'Instagram', icon: '📸' },

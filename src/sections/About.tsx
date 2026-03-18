@@ -2,10 +2,10 @@ import RevealOnScroll from '../components/RevealOnScroll';
 import SprayHeading from '../components/SprayHeading';
 
 const highlights = [
-  { icon: '🎓', title: 'Certified Pro',    desc: 'Internationally certified nail tech. Advanced training in gel, acrylic, and nail art — no shortcuts, just skills.' },
-  { icon: '🎨', title: 'Nail Art Beast',   desc: 'From minimalist to full street art on your tips. If you can dream it, she can paint it.' },
-  { icon: '💎', title: 'Premium Only',     desc: 'Top-shelf products exclusively. No cheap stuff ever touches your nails. Quality is non-negotiable.' },
-  { icon: '⛓️', title: 'Real Experience', desc: '8+ years deep in the game. Hundreds of clients, thousands of sets. She knows exactly what she\'s doing.' },
+  { icon: '🎓', title: 'Certificada',        desc: 'Técnica certificada internacionalmente. Formación avanzada en gel, acrílicas y nail art — sin atajos, solo talento.' },
+  { icon: '🎨', title: 'Arte sin límites',   desc: 'De lo minimalista al street art en tus uñas. Si lo imaginas, ella lo pinta.' },
+  { icon: '💎', title: 'Solo lo mejor',      desc: 'Productos de primera línea, exclusivamente. Lo barato no toca mis uñas ni las tuyas. La calidad no se negocia.' },
+  { icon: '⛓️', title: 'Experiencia real',  desc: 'Más de 8 años en esto. Cientos de clientas, miles de trabajos. Sabe perfectamente lo que hace.' },
 ];
 
 const Drips = () => (
@@ -46,29 +46,29 @@ const About = () => (
         {/* Left */}
         <RevealOnScroll from="left">
           <SprayHeading style={{ marginBottom: '1.5rem' }}>
-            <div className="section-tag">The Artist</div>
+            <div className="section-tag">La Artista</div>
           </SprayHeading>
 
           <div className="border-l-4 border-neon-pink pl-5 mb-5" style={{ boxShadow: '-4px 0 22px rgba(255,20,147,0.22)' }}>
             <p className="text-white/85 text-base md:text-lg leading-relaxed font-body">
-              I'm <span className="marta-tag">Marta</span> — nail artist, creative, and straight-up perfectionist.
-              8 years deep in this craft, based in Barcelona. I don't do average.
+              Soy <span className="marta-tag">Marta</span> — artista de uñas, creativa, y perfeccionista sin remedio.
+              8 años en esto, con base en Albacete. Lo mediocre no va conmigo.
             </p>
           </div>
 
           <p className="text-ink-muted leading-relaxed mb-4 font-body text-sm md:text-base">
-            Every set I create is a statement. Whether it's clean and minimal or loud and wild —
-            your nails tell your story. I'm the one who puts it on the canvas.
+            Cada trabajo que hago es una declaración. Minimalista o explosivo, con tus uñas cuento tu historia.
+            Yo soy la que lo plasma en el lienzo.
           </p>
           <p className="text-ink-muted leading-relaxed mb-8 font-body text-sm md:text-base">
-            Gel, acrylics, nail art, pedicures — all done with precision, premium products,
-            and real passion. No rushing. No compromising. Just results that hit different.
+            Gel, acrílicas, nail art, pedicuras — todo con precisión, productos premium
+            y pasión de verdad. Sin prisas. Sin compromisos. Solo resultados que marcan la diferencia.
           </p>
 
           <a href="#services"
              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto border border-neon-pink text-neon-pink font-bold text-xs tracking-widest uppercase px-7 py-4 hover:bg-neon-pink hover:text-white transition-all duration-200 active:scale-95"
              style={{ boxShadow: '0 0 16px rgba(255,20,147,0.25)' }}>
-            See What I Do →
+            Lo que hago →
           </a>
         </RevealOnScroll>
 

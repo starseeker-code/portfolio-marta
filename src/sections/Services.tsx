@@ -4,39 +4,39 @@ import SprayHeading from '../components/SprayHeading';
 
 const services = [
   {
-    icon: '💅', name: 'Classic Manicure', duration: '45 min', price: '€25',
-    description: 'Shape, file, cuticle care, hand massage, and your colour. A timeless clean that keeps your nails on point.',
-    features: ['Nail shaping & filing', 'Cuticle care', 'Hand massage', 'Polish of choice'],
+    icon: '💅', name: 'Manicura Clásica', duration: '45 min', price: '€25',
+    description: 'Forma, lima, cutículas, masaje de manos y tu color. Lo de siempre, pero hecho como nadie más lo hace.',
+    features: ['Forma y limado', 'Cuidado de cutículas', 'Masaje de manos', 'Esmalte a elegir'],
     hot: false,
   },
   {
-    icon: '⚡', name: 'Gel Manicure', duration: '60 min', price: '€40',
-    description: 'Chip-free, glossy, built to last 3–4 weeks. The go-to for queens who want low maintenance but still look deadly.',
-    features: ['3–4 weeks wear', 'Wide colour range', 'UV-cured finish', 'Nail art add-ons'],
+    icon: '⚡', name: 'Manicura en Gel', duration: '60 min', price: '€40',
+    description: 'Sin chips, brillante, aguanta 3–4 semanas. Para las que quieren ir perfectas sin mover un dedo.',
+    features: ['Duración 3–4 semanas', 'Amplia gama de colores', 'Acabado curado UV', 'Diseño adicional disponible'],
     hot: true,
   },
   {
-    icon: '💎', name: 'Acrylic Nails', duration: '75 min', price: '€55',
-    description: 'Strong extensions for the length and shape you always wanted. Durable, bold, fully customisable.',
-    features: ['Custom length & shape', 'Durable & long-lasting', 'Tip or sculpted', 'Art available'],
+    icon: '💎', name: 'Uñas Acrílicas', duration: '75 min', price: '€55',
+    description: 'Extensiones resistentes para el largo y la forma que siempre quisiste. Duras, atrevidas, completamente personalizables.',
+    features: ['Largo y forma a medida', 'Duraderas y resistentes', 'Tip o esculpidas', 'Arte disponible'],
     hot: false,
   },
   {
-    icon: '🎨', name: 'Nail Art Design', duration: '30–60 min', price: 'From €15',
-    description: 'Your nails, your canvas. Florals, geometric, abstract, street — whatever you\'re feeling, she\'ll make it fire.',
-    features: ['Hand-painted designs', 'Gems, glitter & foils', 'Custom themes', 'Bespoke consultation'],
+    icon: '🎨', name: 'Diseño Nail Art', duration: '30–60 min', price: 'Desde €15',
+    description: 'Tus uñas, tu lienzo. Flores, geometría, abstracto, street — lo que sientas, ella lo convierte en fuego.',
+    features: ['Diseños pintados a mano', 'Piedras, purpurina y foils', 'Temáticas personalizadas', 'Consulta a medida'],
     hot: false,
   },
   {
-    icon: '🌿', name: 'Luxury Pedicure', duration: '60 min', price: '€45',
-    description: 'Full spa treatment for your feet. Soak, scrub, massage, polish. Silky smooth and looking right.',
-    features: ['Foot soak & scrub', 'Callus removal', 'Leg & foot massage', 'Polish or gel'],
+    icon: '🌿', name: 'Pedicura de Lujo', duration: '60 min', price: '€45',
+    description: 'Tratamiento completo para tus pies. Remojo, exfoliación, masaje y esmalte. Suave como la seda y con buena pinta.',
+    features: ['Remojo y exfoliación', 'Eliminación de durezas', 'Masaje piernas y pies', 'Esmalte o gel'],
     hot: false,
   },
   {
-    icon: '👑', name: 'Full Set + Art', duration: '90 min', price: '€75',
-    description: 'The full package. Complete gel or acrylic set plus a custom nail art design from scratch. No limits.',
-    features: ['Full set included', 'Custom art design', 'Premium finish', 'Cuticle care'],
+    icon: '👑', name: 'Set Completo + Arte', duration: '90 min', price: '€75',
+    description: 'El pack completo. Set entero de gel o acrílicas más un diseño nail art personalizado desde cero. Sin límites.',
+    features: ['Set completo incluido', 'Diseño artístico a medida', 'Acabado premium', 'Cuidado de cutículas'],
     hot: false,
   },
 ];
@@ -88,10 +88,10 @@ const Services = () => (
       {/* Header */}
       <RevealOnScroll className="text-center mb-12">
         <SprayHeading>
-          <div className="section-tag justify-center">What I Offer</div>
+          <div className="section-tag justify-center">Lo que ofrezco</div>
         </SprayHeading>
         <p className="text-ink-muted max-w-sm mx-auto font-body mt-4 text-sm">
-          Premium nail work, no BS. Every service done right or not at all.
+          Trabajo premium, sin rollos. Cada servicio hecho como Dios manda o no se hace.
         </p>
       </RevealOnScroll>
 
@@ -110,7 +110,7 @@ const Services = () => (
               {s.hot && (
                 <div className="absolute -top-3 left-5 bg-neon-pink text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest"
                      style={{ boxShadow: '0 0 14px rgba(255,20,147,0.6)' }}>
-                  ⚡ Most Wanted
+                  ⚡ La Más Pedida
                 </div>
               )}
 
@@ -145,7 +145,7 @@ const Services = () => (
                      ? 'bg-neon-pink border-neon-pink text-white hover:bg-transparent hover:text-neon-pink'
                      : 'border-neon-pink/40 text-neon-pink hover:border-neon-pink hover:bg-neon-pink hover:text-white'
                  }`}>
-                Book This
+                Quiero esto
               </a>
             </div>
           </RevealOnScroll>
@@ -154,7 +154,7 @@ const Services = () => (
 
       <RevealOnScroll>
         <p className="text-center text-ink-muted text-xs mt-10 font-body">
-          ★ Prices vary by nail length, condition & design. Hit me up for a custom quote.
+          ★ Los precios varían según largo, estado y diseño. Escríbeme para un presupuesto a medida.
         </p>
       </RevealOnScroll>
     </div>

@@ -10,18 +10,18 @@ const markMarta = (text: string): ReactNode[] =>
   );
 
 const testimonials = [
-  { id: 1, name: 'Sofia R.',     service: 'Gel Manicure',        initials: 'SR',
-    text: "Marta is absolutely incredible! My nails have never looked this good. The gel lasted over a month without chipping. I'm never going anywhere else!" },
-  { id: 2, name: 'Isabella M.', service: 'Nail Art Design',      initials: 'IM',
-    text: "I showed her a reference and she executed it perfectly — even better than the original. The detail in her nail art is unmatched. Pure artist." },
-  { id: 3, name: 'Valentina P.',service: 'Acrylic Nails + Art',  initials: 'VP',
-    text: "My acrylic set looks absolutely flawless. Marta takes her time and you can feel she truly loves what she does. 10/10, no notes." },
-  { id: 4, name: 'Luna G.',      service: 'Luxury Pedicure',      initials: 'LG',
-    text: "Best pedicure I've ever had. My feet feel brand new and the polish is still perfect three weeks later. Came back for my nails the next week." },
-  { id: 5, name: 'Camila F.',   service: 'Classic Manicure',     initials: 'CF',
-    text: "Even a classic manicure feels like a five-star treatment here. Talented, professional, genuinely passionate. Highly recommend." },
-  { id: 6, name: 'Daniela S.',  service: 'Bridal Nails',         initials: 'DS',
-    text: "Marta did my bridal nails and I couldn't have been happier. Patient, detail-oriented, and the result was breathtaking. Thank you so much!" },
+  { id: 1, name: 'Sofía R.',     service: 'Manicura en Gel',         initials: 'SR',
+    text: "Marta es increíble. Mis uñas nunca habían quedado así. El gel me duró más de un mes sin un solo chip. No pienso ir a ningún otro sitio." },
+  { id: 2, name: 'Isabella M.', service: 'Diseño Nail Art',          initials: 'IM',
+    text: "Le enseñé una referencia y lo ejecutó a la perfección — incluso mejor que el original. El nivel de detalle en su nail art no tiene comparación. Pura artista." },
+  { id: 3, name: 'Valentina P.',service: 'Uñas Acrílicas + Arte',    initials: 'VP',
+    text: "Mi set de acrílicas quedó absolutamente perfecto. Marta se toma su tiempo y se nota que ama lo que hace. 10/10, sin peros." },
+  { id: 4, name: 'Luna G.',      service: 'Pedicura de Lujo',         initials: 'LG',
+    text: "La mejor pedicura de mi vida. Mis pies parecen nuevos y el esmalte sigue perfecto tres semanas después. Volví a la semana siguiente para las manos." },
+  { id: 5, name: 'Camila F.',   service: 'Manicura Clásica',         initials: 'CF',
+    text: "Hasta una manicura clásica parece un tratamiento de cinco estrellas aquí. Talentosa, profesional y con una pasión de verdad. Lo recomiendo a todo el mundo." },
+  { id: 6, name: 'Daniela S.',  service: 'Uñas de Novia',            initials: 'DS',
+    text: "Marta me hizo las uñas de novia y no podría estar más contenta. Paciente, detallista, y el resultado fue espectacular. ¡Mil gracias!" },
 ];
 
 const Stars = () => (
@@ -66,10 +66,10 @@ const Testimonials = () => (
       {/* Header */}
       <RevealOnScroll className="text-center mb-12">
         <SprayHeading>
-          <div className="section-tag justify-center">Client Love</div>
+          <div className="section-tag justify-center">Las Clientas</div>
         </SprayHeading>
         <p className="text-ink-muted max-w-sm mx-auto font-body mt-4 text-sm">
-          Don't take her word for it — here's what the people say.
+          No te fíes solo de mi palabra — hablan ellas.
         </p>
       </RevealOnScroll>
 
@@ -116,7 +116,7 @@ const Testimonials = () => (
              style={{ textShadow: '0 0 18px rgba(255,20,147,0.65)' }}>
             5.0 / 5.0
           </p>
-          <p className="text-ink-muted text-[10px] uppercase tracking-widest font-body">200+ Verified Reviews</p>
+          <p className="text-ink-muted text-[10px] uppercase tracking-widest font-body">200+ Reseñas Verificadas</p>
         </div>
       </RevealOnScroll>
     </div>
