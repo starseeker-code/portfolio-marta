@@ -79,8 +79,6 @@ const LandingPage = () => {
         audioRef={audioRef}
         playing={playing}
         onToggle={togglePlay}
-        currentTime={currentTime}
-        duration={duration}
       />
 
       <main>

@@ -15,11 +15,9 @@ interface NavbarProps {
   audioRef:    React.RefObject<HTMLAudioElement | null>;
   playing:     boolean;
   onToggle:    () => void;
-  currentTime: number;
-  duration:    number;
 }
 
-const Navbar = ({ playing, onToggle, currentTime, duration }: NavbarProps) => {
+const Navbar = ({ playing, onToggle }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
