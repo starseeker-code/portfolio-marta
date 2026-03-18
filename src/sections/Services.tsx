@@ -1,3 +1,6 @@
+import type { MouseEvent } from 'react';
+import RevealOnScroll from '../components/RevealOnScroll';
+
 const services = [
   {
     icon: '💅',
@@ -55,12 +58,29 @@ const services = [
   },
 ];
 
+/* 3-D tilt helpers */
+const onTilt = (e: MouseEvent<HTMLDivElement>) => {
+  const el   = e.currentTarget;
+  const rect = el.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width  - 0.5) * 14;
+  const y = ((e.clientY - rect.top)  / rect.height - 0.5) * -14;
+  el.style.transform    = `perspective(900px) rotateX(${y}deg) rotateY(${x}deg) scale3d(1.04,1.04,1.04)`;
+  el.style.transition   = 'transform 0.08s ease';
+};
+
+const resetTilt = (e: MouseEvent<HTMLDivElement>) => {
+  const el = e.currentTarget;
+  el.style.transform  = 'perspective(900px) rotateX(0) rotateY(0) scale3d(1,1,1)';
+  el.style.transition = 'transform 0.5s ease';
+};
+
 const Services = () => {
   return (
     <section id="services" className="py-24 bg-gradient-to-b from-barbie-pale to-barbie-cream">
       <div className="container mx-auto px-6">
+
         {/* Header */}
-        <div className="text-center mb-16">
+        <RevealOnScroll className="text-center mb-16">
           <p className="text-barbie-pink font-semibold text-sm uppercase tracking-widest mb-3">What I Offer</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             My <span className="text-gradient">Services</span>
@@ -68,73 +88,79 @@ const Services = () => {
           <p className="text-gray-500 max-w-xl mx-auto text-lg">
             Each service is crafted with care, precision, and the finest products — because you deserve nothing less.
           </p>
-        </div>
+        </RevealOnScroll>
 
-        {/* Grid */}
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <div
-              key={service.name}
-              className={`relative p-8 rounded-3xl border transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl flex flex-col ${
-                service.popular
-                  ? 'bg-barbie-gradient text-white border-transparent shadow-xl'
-                  : 'bg-white border-barbie-blush hover:border-barbie-pink'
-              }`}
-            >
-              {service.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-md whitespace-nowrap">
-                  ⭐ Most Popular
-                </div>
-              )}
-
-              <div className="text-4xl mb-4">{service.icon}</div>
-
-              <h3 className={`font-display text-xl font-bold mb-1 ${service.popular ? 'text-white' : 'text-gray-800'}`}>
-                {service.name}
-              </h3>
-
-              <div className={`flex items-center gap-3 text-sm mb-4 ${service.popular ? 'text-white/80' : 'text-gray-400'}`}>
-                <span>⏱ {service.duration}</span>
-                <span>·</span>
-                <span className={`font-bold text-lg ${service.popular ? 'text-white' : 'text-barbie-pink'}`}>
-                  {service.price}
-                </span>
-              </div>
-
-              <p className={`text-sm leading-relaxed mb-6 flex-grow ${service.popular ? 'text-white/90' : 'text-gray-500'}`}>
-                {service.description}
-              </p>
-
-              <ul className="space-y-2 mb-7">
-                {service.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className={`flex items-center gap-2 text-sm ${service.popular ? 'text-white/90' : 'text-gray-600'}`}
-                  >
-                    <span className={`font-bold ${service.popular ? 'text-white' : 'text-barbie-pink'}`}>✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#contact"
-                className={`block text-center font-bold text-sm py-3 px-6 rounded-full transition-all duration-200 mt-auto ${
+          {services.map((service, i) => (
+            <RevealOnScroll key={service.name} delay={i * 80}>
+              <div
+                onMouseMove={service.popular ? undefined : onTilt}
+                onMouseLeave={service.popular ? undefined : resetTilt}
+                className={`relative p-8 rounded-3xl border flex flex-col h-full cursor-default ${
                   service.popular
-                    ? 'bg-white text-barbie-pink hover:bg-barbie-pale'
-                    : 'bg-barbie-pale text-barbie-pink border border-barbie-blush hover:bg-barbie-pink hover:text-white hover:border-transparent'
+                    ? 'bg-barbie-gradient text-white border-transparent shadow-2xl'
+                    : 'bg-white border-barbie-blush hover:border-barbie-pink hover:shadow-xl'
                 }`}
+                style={{ willChange: 'transform' }}
               >
-                Book This Service
-              </a>
-            </div>
+                {service.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-md whitespace-nowrap">
+                    ⭐ Most Popular
+                  </div>
+                )}
+
+                <div className="text-4xl mb-4">{service.icon}</div>
+
+                <h3 className={`font-display text-xl font-bold mb-1 ${service.popular ? 'text-white' : 'text-gray-800'}`}>
+                  {service.name}
+                </h3>
+
+                <div className={`flex items-center gap-3 text-sm mb-4 ${service.popular ? 'text-white/80' : 'text-gray-400'}`}>
+                  <span>⏱ {service.duration}</span>
+                  <span>·</span>
+                  <span className={`font-bold text-lg ${service.popular ? 'text-white' : 'text-barbie-pink'}`}>
+                    {service.price}
+                  </span>
+                </div>
+
+                <p className={`text-sm leading-relaxed mb-6 flex-grow ${service.popular ? 'text-white/90' : 'text-gray-500'}`}>
+                  {service.description}
+                </p>
+
+                <ul className="space-y-2 mb-7">
+                  {service.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className={`flex items-center gap-2 text-sm ${service.popular ? 'text-white/90' : 'text-gray-600'}`}
+                    >
+                      <span className={`font-bold ${service.popular ? 'text-white' : 'text-barbie-pink'}`}>✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="#contact"
+                  className={`block text-center font-bold text-sm py-3 px-6 rounded-full transition-all duration-200 mt-auto ${
+                    service.popular
+                      ? 'bg-white text-barbie-pink hover:bg-barbie-pale'
+                      : 'bg-barbie-pale text-barbie-pink border border-barbie-blush hover:bg-barbie-pink hover:text-white hover:border-transparent'
+                  }`}
+                >
+                  Book This Service
+                </a>
+              </div>
+            </RevealOnScroll>
           ))}
         </div>
 
-        <p className="text-center text-gray-400 text-sm mt-12">
-          💡 Prices may vary based on nail length, condition, and design complexity.
-          Contact me for a personalised quote.
-        </p>
+        <RevealOnScroll>
+          <p className="text-center text-gray-400 text-sm mt-12">
+            💡 Prices may vary based on nail length, condition, and design complexity.
+            Contact me for a personalised quote.
+          </p>
+        </RevealOnScroll>
       </div>
     </section>
   );

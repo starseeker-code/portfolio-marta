@@ -17,6 +17,11 @@ export default {
           cream: '#FFF0F8',
         },
         gold: '#D4AF37',
+        urban: {
+          dark: '#120810',
+          mid:  '#22091a',
+          edge: '#3a0f2a',
+        },
       },
       fontFamily: {
         display: ['"Playfair Display"', 'serif'],

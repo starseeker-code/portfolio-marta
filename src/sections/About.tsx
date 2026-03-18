@@ -1,3 +1,5 @@
+import RevealOnScroll from '../components/RevealOnScroll';
+
 const highlights = [
   {
     icon: '🎓',
@@ -26,8 +28,9 @@ const About = () => {
     <section id="about" className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
           {/* Left: Text */}
-          <div>
+          <RevealOnScroll from="left">
             <p className="text-barbie-pink font-semibold text-sm uppercase tracking-widest mb-3">About Me</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">
               Passion for Nails,
@@ -46,28 +49,28 @@ const About = () => {
             </p>
             <a
               href="#services"
-              className="inline-flex items-center gap-2 text-barbie-pink font-bold hover:gap-4 transition-all duration-200 group"
+              className="inline-flex items-center gap-2 text-barbie-pink font-bold group"
             >
               Explore my services
-              <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+              <span className="group-hover:translate-x-1.5 transition-transform duration-200">→</span>
             </a>
-          </div>
+          </RevealOnScroll>
 
-          {/* Right: Highlights */}
+          {/* Right: Highlights grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {highlights.map((item) => (
-              <div
-                key={item.title}
-                className="p-6 bg-barbie-cream rounded-2xl border border-barbie-blush hover:border-barbie-pink hover:shadow-lg transition-all duration-300 group cursor-default"
-              >
-                <span className="text-3xl mb-3 block">{item.icon}</span>
-                <h3 className="font-display font-semibold text-gray-800 mb-2 group-hover:text-barbie-pink transition-colors text-base">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-              </div>
+            {highlights.map((item, i) => (
+              <RevealOnScroll key={item.title} delay={i * 100}>
+                <div className="p-6 bg-barbie-cream rounded-2xl border border-barbie-blush hover:border-barbie-pink hover:shadow-lg transition-all duration-300 group cursor-default h-full">
+                  <span className="text-3xl mb-3 block">{item.icon}</span>
+                  <h3 className="font-display font-semibold text-gray-800 mb-2 group-hover:text-barbie-pink transition-colors text-base">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                </div>
+              </RevealOnScroll>
             ))}
           </div>
+
         </div>
       </div>
     </section>

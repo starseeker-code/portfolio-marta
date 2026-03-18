@@ -1,3 +1,5 @@
+import RevealOnScroll from '../components/RevealOnScroll';
+
 const contactInfo = [
   {
     icon: '📍',
@@ -29,8 +31,9 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-white">
       <div className="container mx-auto px-6">
+
         {/* Header */}
-        <div className="text-center mb-16">
+        <RevealOnScroll className="text-center mb-16">
           <p className="text-barbie-pink font-semibold text-sm uppercase tracking-widest mb-3">Get In Touch</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             Book Your <span className="text-gradient">Appointment</span>
@@ -39,16 +42,17 @@ const Contact = () => {
             Ready to treat yourself? I'd love to hear from you!
             Fill in the form or reach out directly.
           </p>
-        </div>
+        </RevealOnScroll>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 max-w-5xl mx-auto">
+
           {/* Left: Info */}
-          <div>
+          <RevealOnScroll from="left">
             <div className="space-y-4 mb-10">
               {contactInfo.map((item) => (
                 <div
                   key={item.title}
-                  className="flex items-start gap-4 p-5 bg-barbie-cream rounded-2xl border border-barbie-blush hover:border-barbie-pink transition-colors group"
+                  className="flex items-start gap-4 p-5 bg-barbie-cream rounded-2xl border border-barbie-blush hover:border-barbie-pink hover:-translate-y-0.5 transition-all duration-300 group"
                 >
                   <span className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</span>
                   <div>
@@ -62,7 +66,6 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social buttons */}
             <div>
               <p className="font-semibold text-gray-700 mb-4 text-sm">Follow me for daily nail inspiration ✨</p>
               <div className="flex flex-wrap gap-3">
@@ -73,7 +76,7 @@ const Contact = () => {
                 ].map((s) => (
                   <button
                     key={s.label}
-                    className="flex items-center gap-2 bg-barbie-pale text-barbie-pink font-semibold text-sm px-5 py-2.5 rounded-full border border-barbie-blush hover:bg-barbie-pink hover:text-white hover:border-transparent transition-all duration-200"
+                    className="flex items-center gap-2 bg-barbie-pale text-barbie-pink font-semibold text-sm px-5 py-2.5 rounded-full border border-barbie-blush hover:bg-barbie-pink hover:text-white hover:border-transparent hover:scale-105 transition-all duration-200"
                   >
                     <span>{s.icon}</span>
                     {s.label}
@@ -81,80 +84,76 @@ const Contact = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </RevealOnScroll>
 
           {/* Right: Form */}
-          <div className="bg-gradient-to-br from-barbie-pale to-barbie-cream p-8 rounded-3xl border border-barbie-blush">
-            <h3 className="font-display text-2xl font-bold text-gray-800 mb-6">Send Me a Message 💌</h3>
-            <form className="space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-1.5">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="Sofia R."
-                    className="w-full px-4 py-3 bg-white border border-barbie-blush rounded-xl focus:outline-none focus:ring-2 focus:ring-barbie-pink focus:border-transparent text-gray-700 placeholder-gray-300 transition text-sm"
-                  />
+          <RevealOnScroll from="right" delay={100}>
+            <div className="bg-gradient-to-br from-barbie-pale to-barbie-cream p-8 rounded-3xl border border-barbie-blush">
+              <h3 className="font-display text-2xl font-bold text-gray-800 mb-6">Send Me a Message 💌</h3>
+              <form className="space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-1.5">Your Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder="Sofia R."
+                      className="w-full px-4 py-3 bg-white border border-barbie-blush rounded-xl focus:outline-none focus:ring-2 focus:ring-barbie-pink focus:border-transparent text-gray-700 placeholder-gray-300 transition text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1.5">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="sofia@example.com"
+                      className="w-full px-4 py-3 bg-white border border-barbie-blush rounded-xl focus:outline-none focus:ring-2 focus:ring-barbie-pink focus:border-transparent text-gray-700 placeholder-gray-300 transition text-sm"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1.5">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="sofia@example.com"
-                    className="w-full px-4 py-3 bg-white border border-barbie-blush rounded-xl focus:outline-none focus:ring-2 focus:ring-barbie-pink focus:border-transparent text-gray-700 placeholder-gray-300 transition text-sm"
-                  />
-                </div>
-              </div>
 
-              <div>
-                <label htmlFor="service" className="block text-sm font-semibold text-gray-700 mb-1.5">
-                  Service Interested In
-                </label>
-                <select
-                  id="service"
-                  className="w-full px-4 py-3 bg-white border border-barbie-blush rounded-xl focus:outline-none focus:ring-2 focus:ring-barbie-pink focus:border-transparent text-gray-700 transition text-sm"
+                <div>
+                  <label htmlFor="service" className="block text-sm font-semibold text-gray-700 mb-1.5">Service Interested In</label>
+                  <select
+                    id="service"
+                    className="w-full px-4 py-3 bg-white border border-barbie-blush rounded-xl focus:outline-none focus:ring-2 focus:ring-barbie-pink focus:border-transparent text-gray-700 transition text-sm"
+                  >
+                    <option value="">Select a service...</option>
+                    <option>Classic Manicure</option>
+                    <option>Gel Manicure</option>
+                    <option>Acrylic Nails</option>
+                    <option>Nail Art Design</option>
+                    <option>Luxury Pedicure</option>
+                    <option>Full Set + Nail Art</option>
+                    <option>Other / Not sure yet</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-1.5">Your Message</label>
+                  <textarea
+                    id="message"
+                    rows={4}
+                    placeholder="Tell me about your ideal nail look, preferred date, or any questions you have..."
+                    className="w-full px-4 py-3 bg-white border border-barbie-blush rounded-xl focus:outline-none focus:ring-2 focus:ring-barbie-pink focus:border-transparent text-gray-700 placeholder-gray-300 transition resize-none text-sm"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full text-white font-bold py-4 rounded-xl hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
+                  style={{ background: 'linear-gradient(135deg, #FF1493 0%, #E91E8C 50%, #C2185B 100%)' }}
                 >
-                  <option value="">Select a service...</option>
-                  <option>Classic Manicure</option>
-                  <option>Gel Manicure</option>
-                  <option>Acrylic Nails</option>
-                  <option>Nail Art Design</option>
-                  <option>Luxury Pedicure</option>
-                  <option>Full Set + Nail Art</option>
-                  <option>Other / Not sure yet</option>
-                </select>
-              </div>
+                  Send Message ✨
+                </button>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-1.5">
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  placeholder="Tell me about your ideal nail look, preferred date, or any questions you have..."
-                  className="w-full px-4 py-3 bg-white border border-barbie-blush rounded-xl focus:outline-none focus:ring-2 focus:ring-barbie-pink focus:border-transparent text-gray-700 placeholder-gray-300 transition resize-none text-sm"
-                />
-              </div>
+                <p className="text-center text-xs text-gray-400">
+                  I typically reply within 24 hours 💌
+                </p>
+              </form>
+            </div>
+          </RevealOnScroll>
 
-              <button
-                type="submit"
-                className="w-full bg-barbie-gradient text-white font-bold py-4 rounded-xl hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
-              >
-                Send Message ✨
-              </button>
-
-              <p className="text-center text-xs text-gray-400">
-                I typically reply within 24 hours 💌
-              </p>
-            </form>
-          </div>
         </div>
       </div>
     </section>

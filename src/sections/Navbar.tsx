@@ -40,7 +40,7 @@ const Navbar = () => {
               <a
                 href={link.href}
                 className={`font-body font-semibold text-sm transition-colors hover:text-barbie-pink ${
-                  isScrolled ? 'text-gray-700' : 'text-gray-800'
+                  isScrolled ? 'text-gray-700' : 'text-white/85'
                 }`}
               >
                 {link.label}

@@ -7,7 +7,6 @@
     font-family: 'Nunito', sans-serif;
     @apply bg-barbie-cream text-gray-800;
   }
-
   h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
   }
@@ -20,7 +19,6 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
   .shimmer {
     background: linear-gradient(90deg, #FDE8F5 25%, #FFB6C1 50%, #FDE8F5 75%);
     background-size: 200% 100%;
@@ -28,27 +26,223 @@
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   GRAFFITI — MARTA
+   ═══════════════════════════════════════════════════════════════ */
+
+/*
+ * Wrapper owns the spray clip-path so ALL layers (chroma + text)
+ * reveal together as one piece.
+ */
+.graffiti-wrapper {
+  position: relative;
+  display: block;
+  /* start fully hidden → animate to fully visible */
+  clip-path: inset(-30% 100% -30% -10%);
+  animation: spraySweep 1.4s cubic-bezier(0.1, 0.5, 0.3, 1.05) forwards 0.25s;
+  /* enough padding so rotated glow isn't cut off */
+  padding: 0.15em 0 0.35em 0;
+}
+
+/* ── Main text ─────────────────────────────────────────────── */
+.graffiti-name {
+  font-family: 'Rubik Glitch', cursive;
+  font-size: max(4.8rem, 19.5vw);
+  line-height: 0.88;
+  display: block;
+  position: relative;
+  z-index: 2;
+  color: #FF1493;
+  -webkit-text-stroke: 2.5px #8b003a;
+  letter-spacing: -0.025em;
+  transform: rotate(-2.5deg) skewX(-3deg);
+  transform-origin: left 60%;
+
+  /* 3-D extrusion → gives the bubble-graffiti depth */
+  text-shadow:
+    1px  1px 0 #c2185b,
+    2px  2px 0 #c2185b,
+    3px  3px 0 #b5154f,
+    4px  4px 0 #aa1248,
+    5px  5px 0 #9e0f42,
+    6px  6px 0 #8b003a,
+    7px  7px 0 rgba(139,0,58,0.6),
+    8px  8px 0 rgba(139,0,58,0.35),
+    /* neon bloom */
+    0 0 12px  rgba(255,20,147,1),
+    0 0 30px  rgba(255,20,147,0.75),
+    0 0 65px  rgba(255,20,147,0.4),
+    0 0 130px rgba(255,20,147,0.15);
+
+  /* pulse + glitch start after spray finishes */
+  animation:
+    neonBreathe  4s   ease-in-out infinite 1.8s,
+    glitchFlash 10s   ease-in-out infinite 3.5s;
+
+  will-change: transform, text-shadow;
+}
+
+/* ── Chromatic aberration ghost layers ─────────────────────── */
+.graffiti-chroma {
+  font-family: 'Rubik Glitch', cursive;
+  font-size: max(4.8rem, 19.5vw);
+  line-height: 0.88;
+  display: block;
+  position: absolute;
+  top: 0.15em;   /* match wrapper padding-top */
+  left: 0;
+  pointer-events: none;
+  -webkit-text-stroke: 0;
+  letter-spacing: -0.025em;
+  transform-origin: left 60%;
+  user-select: none;
+  z-index: 1;
+}
+
+.graffiti-chroma-a {
+  color: #00E5FF;
+  opacity: 0.40;   /* more visible on dark */
+  transform: rotate(-2.5deg) skewX(-3deg) translate(-8px, -4px);
+  animation: chromaDriftA 6s ease-in-out infinite 2.2s;
+}
+
+.graffiti-chroma-b {
+  color: #FF4081;
+  opacity: 0.32;   /* more visible on dark */
+  transform: rotate(-2.5deg) skewX(-3deg) translate(8px, 4px);
+  animation: chromaDriftB 6s ease-in-out infinite 2.2s;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────── */
+
+/* Wild spray sweep — more steps = more jitter = more graffiti */
+@keyframes spraySweep {
+  0%   { clip-path: inset(-30% 100%   -30%  -10%); }
+  8%   { clip-path: inset(-20%  86%   -38%  -10%); }
+  18%  { clip-path: inset(-38%  70%   -20%  -10%); }
+  28%  { clip-path: inset(-20%  54%   -38%  -10%); }
+  38%  { clip-path: inset(-38%  38%   -20%  -10%); }
+  50%  { clip-path: inset(-20%  24%   -38%  -10%); }
+  60%  { clip-path: inset(-38%  12%   -20%  -10%); }
+  72%  { clip-path: inset(-20%   3%   -38%  -10%); }
+  84%  { clip-path: inset(-38%  -5%   -20%  -10%); }
+  100% { clip-path: inset(-30% -10%   -30%  -10%); }
+}
+
+/* Neon breathe — cranked for dark wall */
+@keyframes neonBreathe {
+  0%, 100% {
+    text-shadow:
+      1px 1px 0 #c2185b, 2px 2px 0 #c2185b, 3px 3px 0 #b5154f,
+      4px 4px 0 #aa1248, 5px 5px 0 #9e0f42, 6px 6px 0 #8b003a,
+      7px 7px 0 rgba(139,0,58,0.6), 8px 8px 0 rgba(139,0,58,0.35),
+      0 0 14px  rgba(255,20,147,1),
+      0 0 35px  rgba(255,20,147,0.9),
+      0 0 75px  rgba(255,20,147,0.65),
+      0 0 150px rgba(255,20,147,0.35),
+      0 0 260px rgba(255,20,147,0.15);
+  }
+  50% {
+    text-shadow:
+      1px 1px 0 #c2185b, 2px 2px 0 #c2185b, 3px 3px 0 #b5154f,
+      4px 4px 0 #aa1248, 5px 5px 0 #9e0f42, 6px 6px 0 #8b003a,
+      7px 7px 0 rgba(139,0,58,0.6), 8px 8px 0 rgba(139,0,58,0.35),
+      0 0 20px  rgba(255,20,147,1),
+      0 0 60px  rgba(255,20,147,1),
+      0 0 120px rgba(255,20,147,0.85),
+      0 0 220px rgba(255,20,147,0.55),
+      0 0 380px rgba(255,20,147,0.25);
+  }
+}
+
+/* Glitch flash — brief digital distortion every ~10s */
+@keyframes glitchFlash {
+  0%, 88%, 100% {
+    transform: rotate(-2.5deg) skewX(-3deg) translate(0, 0);
+    text-shadow:
+      1px 1px 0 #c2185b, 2px 2px 0 #c2185b, 3px 3px 0 #b5154f,
+      4px 4px 0 #aa1248, 5px 5px 0 #8b003a,
+      0 0 12px rgba(255,20,147,1), 0 0 35px rgba(255,20,147,0.7);
+  }
+  89% {
+    transform: rotate(-2.5deg) skewX(-8deg) translate(-10px, 0);
+    text-shadow: -10px 0 #00FFFF, 10px 0 #FF1493, 0 0 30px #FF1493;
+  }
+  89.5% {
+    transform: rotate(-2.5deg) skewX(8deg) translate(10px, 0);
+    text-shadow: 10px 0 #00FFFF, -10px 0 #FF4081, 0 0 30px #FF1493;
+  }
+  90% {
+    transform: rotate(-2.5deg) skewX(-3deg) translate(0, 0);
+    text-shadow:
+      1px 1px 0 #c2185b, 2px 2px 0 #c2185b,
+      0 0 12px rgba(255,20,147,1), 0 0 35px rgba(255,20,147,0.7);
+  }
+  91% {
+    transform: rotate(-2.5deg) skewX(-4deg) translate(-5px, 2px);
+    text-shadow: -5px 0 #FF00FF, 5px 0 #FFFF00, 0 0 25px #FF1493;
+    color: #FF69B4;
+  }
+  91.5% {
+    transform: rotate(-2.5deg) skewX(-3deg) translate(0, 0);
+    color: #FF1493;
+  }
+}
+
+@keyframes chromaDriftA {
+  0%, 100% { transform: rotate(-2.5deg) skewX(-3deg) translate(-8px,  -4px); }
+  30%       { transform: rotate(-2.5deg) skewX(-3deg) translate(-12px,  2px); }
+  65%       { transform: rotate(-2.5deg) skewX(-3deg) translate(-5px,  -6px); }
+}
+
+@keyframes chromaDriftB {
+  0%, 100% { transform: rotate(-2.5deg) skewX(-3deg) translate( 8px,  4px); }
+  30%       { transform: rotate(-2.5deg) skewX(-3deg) translate( 12px, -2px); }
+  65%       { transform: rotate(-2.5deg) skewX(-3deg) translate(  5px,  6px); }
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes sprayParticle {
+  0%   { opacity: 0; transform: scale(0);   }
+  20%  { opacity: 0.8; }
+  70%  { opacity: 0.3; }
+  100% { opacity: 0; transform: scale(2.4); }
+}
+
+@keyframes drip {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* ─── Scroll Reveal ──────────────────────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
 }
-::-webkit-scrollbar-track {
-  background: #FDE8F5;
-}
-::-webkit-scrollbar-thumb {
-  background: #E91E8C;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #C2185B;
+.reveal.from-left  { transform: translateX(-40px); }
+.reveal.from-right { transform: translateX( 40px); }
+
+.reveal.in-view {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track  { background: #FDE8F5; }
+::-webkit-scrollbar-thumb  { background: #E91E8C; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #C2185B; }
+
+html { scroll-behavior: smooth; }

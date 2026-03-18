@@ -1,3 +1,5 @@
+import RevealOnScroll from '../components/RevealOnScroll';
+
 const testimonials = [
   {
     id: 1,
@@ -55,8 +57,9 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-24 bg-gradient-to-b from-barbie-cream to-barbie-pale">
       <div className="container mx-auto px-6">
+
         {/* Header */}
-        <div className="text-center mb-16">
+        <RevealOnScroll className="text-center mb-16">
           <p className="text-barbie-pink font-semibold text-sm uppercase tracking-widest mb-3">Happy Clients</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             What They <span className="text-gradient">Say</span>
@@ -64,48 +67,47 @@ const Testimonials = () => {
           <p className="text-gray-500 max-w-xl mx-auto">
             Don't just take my word for it — here's what my amazing clients have to say!
           </p>
-        </div>
+        </RevealOnScroll>
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <div
-              key={t.id}
-              className="bg-white p-8 rounded-3xl border border-barbie-blush shadow-sm hover:shadow-lg hover:border-barbie-pink/40 transition-all duration-300 group flex flex-col"
-            >
-              {/* Opening quote */}
-              <div className="font-display text-6xl font-bold leading-none text-barbie-pink/15 group-hover:text-barbie-pink/25 transition-colors mb-2 select-none">
-                "
-              </div>
-
-              <StarRow />
-
-              <p className="text-gray-600 italic leading-relaxed my-4 text-sm flex-grow">
-                "{t.text}"
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-3 mt-4 pt-4 border-t border-barbie-blush">
-                <div className="w-11 h-11 rounded-full bg-barbie-gradient flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                  {t.initials}
+          {testimonials.map((t, i) => (
+            <RevealOnScroll key={t.id} delay={i * 90}>
+              <div className="bg-white p-8 rounded-3xl border border-barbie-blush shadow-sm hover:shadow-lg hover:border-barbie-pink/40 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+                {/* Opening quote */}
+                <div className="font-display text-6xl font-bold leading-none text-barbie-pink/15 mb-2 select-none">
+                  "
                 </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800 text-sm">{t.name}</h4>
-                  <p className="text-xs text-barbie-pink font-medium">{t.service}</p>
+
+                <StarRow />
+
+                <p className="text-gray-600 italic leading-relaxed my-4 text-sm flex-grow">
+                  "{t.text}"
+                </p>
+
+                <div className="flex items-center gap-3 mt-4 pt-4 border-t border-barbie-blush">
+                  <div className="w-11 h-11 rounded-full bg-barbie-gradient flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 text-sm">{t.name}</h4>
+                    <p className="text-xs text-barbie-pink font-medium">{t.service}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </RevealOnScroll>
           ))}
         </div>
 
-        {/* Overall rating badge */}
-        <div className="mt-16 text-center">
+        {/* Overall rating */}
+        <RevealOnScroll delay={200} className="mt-16 text-center">
           <div className="inline-flex flex-col items-center gap-2 bg-white px-10 py-7 rounded-3xl shadow-md border border-barbie-blush">
             <StarRow />
             <p className="font-display text-3xl font-bold text-gray-800">5.0 / 5.0</p>
             <p className="text-gray-400 text-sm">Based on 200+ verified reviews</p>
           </div>
-        </div>
+        </RevealOnScroll>
+
       </div>
     </section>
   );
