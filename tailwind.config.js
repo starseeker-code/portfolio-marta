@@ -7,29 +7,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        barbie: {
-          pink: '#E91E8C',
-          hot: '#FF1493',
+        neon: {
+          pink:  '#FF1493',
+          hot:   '#FF006B',
           light: '#FF69B4',
-          pale: '#FDE8F5',
-          blush: '#FFD6E8',
-          rose: '#C2185B',
-          cream: '#FFF0F8',
+          dim:   '#C2185B',
         },
-        gold: '#D4AF37',
-        urban: {
-          dark: '#120810',
-          mid:  '#22091a',
-          edge: '#3a0f2a',
+        ink: {
+          black:  '#080808',
+          dark:   '#0f0f0f',
+          mid:    '#181818',
+          light:  '#222222',
+          border: '#2e2e2e',
+          muted:  '#666666',
         },
+        gold: '#FFD700',
       },
       fontFamily: {
-        display: ['"Playfair Display"', 'serif'],
-        body: ['Nunito', 'sans-serif'],
+        display: ['"Permanent Marker"', 'cursive'],
+        body:    ['Nunito', 'sans-serif'],
       },
       backgroundImage: {
-        'barbie-gradient': 'linear-gradient(135deg, #FF1493 0%, #E91E8C 50%, #C2185B 100%)',
-        'pink-gradient': 'linear-gradient(180deg, #FFF0F8 0%, #FDE8F5 100%)',
+        'neon-gradient': 'linear-gradient(135deg, #FF1493 0%, #FF006B 50%, #C2185B 100%)',
       },
     },
   },

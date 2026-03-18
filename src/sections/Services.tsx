@@ -1,169 +1,168 @@
 import type { MouseEvent } from 'react';
 import RevealOnScroll from '../components/RevealOnScroll';
+import SprayHeading from '../components/SprayHeading';
 
 const services = [
   {
-    icon: '💅',
-    name: 'Classic Manicure',
-    duration: '45 min',
-    price: '€25',
-    description: 'Shape, file, cuticle care, hand massage, and your choice of nail polish. A timeless classic to keep your nails looking their best.',
-    features: ['Nail shaping & filing', 'Cuticle care & clean-up', 'Relaxing hand massage', 'Polish of your choice'],
-    popular: false,
+    icon: '💅', name: 'Classic Manicure', duration: '45 min', price: '€25',
+    description: 'Shape, file, cuticle care, hand massage, and your colour. A timeless clean that keeps your nails on point.',
+    features: ['Nail shaping & filing', 'Cuticle care', 'Hand massage', 'Polish of choice'],
+    hot: false,
   },
   {
-    icon: '✨',
-    name: 'Gel Manicure',
-    duration: '60 min',
-    price: '€40',
-    description: 'Long-lasting gel nails that stay chip-free for weeks. Glossy, strong, and absolutely stunning — the perfect low-maintenance choice.',
-    features: ['Up to 3–4 weeks wear', 'Wide colour range', 'UV-cured high-shine finish', 'Nail art add-ons available'],
-    popular: true,
+    icon: '⚡', name: 'Gel Manicure', duration: '60 min', price: '€40',
+    description: 'Chip-free, glossy, built to last 3–4 weeks. The go-to for queens who want low maintenance but still look deadly.',
+    features: ['3–4 weeks wear', 'Wide colour range', 'UV-cured finish', 'Nail art add-ons'],
+    hot: true,
   },
   {
-    icon: '💎',
-    name: 'Acrylic Nails',
-    duration: '75 min',
-    price: '€55',
-    description: 'Strong, beautiful acrylic extensions for the perfect nail length and shape you\'ve always dreamed of. Durable and customisable.',
-    features: ['Custom length & shape', 'Durable & long-lasting', 'Tip or sculpted options', 'Nail art available'],
-    popular: false,
+    icon: '💎', name: 'Acrylic Nails', duration: '75 min', price: '€55',
+    description: 'Strong extensions for the length and shape you always wanted. Durable, bold, fully customisable.',
+    features: ['Custom length & shape', 'Durable & long-lasting', 'Tip or sculpted', 'Art available'],
+    hot: false,
   },
   {
-    icon: '🎨',
-    name: 'Nail Art Design',
-    duration: '30–60 min',
-    price: 'From €15',
-    description: 'Express yourself with custom nail art. From delicate florals to bold geometric — the canvas is yours, the art is mine.',
-    features: ['Hand-painted designs', 'Gems, glitters & foils', 'Seasonal & custom themes', 'Bespoke consultations'],
-    popular: false,
+    icon: '🎨', name: 'Nail Art Design', duration: '30–60 min', price: 'From €15',
+    description: 'Your nails, your canvas. Florals, geometric, abstract, street — whatever you\'re feeling, she\'ll make it fire.',
+    features: ['Hand-painted designs', 'Gems, glitter & foils', 'Custom themes', 'Bespoke consultation'],
+    hot: false,
   },
   {
-    icon: '🌸',
-    name: 'Luxury Pedicure',
-    duration: '60 min',
-    price: '€45',
-    description: 'Treat your feet to a full spa pedicure — soak, exfoliate, massage, and polish for silky smooth and beautifully groomed results.',
-    features: ['Foot soak & scrub', 'Callus & dry skin removal', 'Leg & foot massage', 'Polish or gel finish'],
-    popular: false,
+    icon: '🌿', name: 'Luxury Pedicure', duration: '60 min', price: '€45',
+    description: 'Full spa treatment for your feet. Soak, scrub, massage, polish. Silky smooth and looking right.',
+    features: ['Foot soak & scrub', 'Callus removal', 'Leg & foot massage', 'Polish or gel'],
+    hot: false,
   },
   {
-    icon: '👑',
-    name: 'Full Set + Nail Art',
-    duration: '90 min',
-    price: '€75',
-    description: 'The ultimate nail experience. A full gel or acrylic set combined with a completely custom nail art design. Pure luxury.',
-    features: ['Full set included', 'Custom art design', 'Premium finish & shine', 'Complimentary cuticle care'],
-    popular: false,
+    icon: '👑', name: 'Full Set + Art', duration: '90 min', price: '€75',
+    description: 'The full package. Complete gel or acrylic set plus a custom nail art design from scratch. No limits.',
+    features: ['Full set included', 'Custom art design', 'Premium finish', 'Cuticle care'],
+    hot: false,
   },
 ];
 
-/* 3-D tilt helpers */
 const onTilt = (e: MouseEvent<HTMLDivElement>) => {
-  const el   = e.currentTarget;
-  const rect = el.getBoundingClientRect();
-  const x = ((e.clientX - rect.left) / rect.width  - 0.5) * 14;
-  const y = ((e.clientY - rect.top)  / rect.height - 0.5) * -14;
-  el.style.transform    = `perspective(900px) rotateX(${y}deg) rotateY(${x}deg) scale3d(1.04,1.04,1.04)`;
-  el.style.transition   = 'transform 0.08s ease';
+  const el = e.currentTarget, r = el.getBoundingClientRect();
+  const x = ((e.clientX - r.left) / r.width - 0.5) * 12;
+  const y = ((e.clientY - r.top)  / r.height - 0.5) * -12;
+  el.style.transform  = `perspective(900px) rotateX(${y}deg) rotateY(${x}deg) scale3d(1.03,1.03,1.03)`;
+  el.style.transition = 'transform 0.08s ease';
 };
-
 const resetTilt = (e: MouseEvent<HTMLDivElement>) => {
-  const el = e.currentTarget;
-  el.style.transform  = 'perspective(900px) rotateX(0) rotateY(0) scale3d(1,1,1)';
-  el.style.transition = 'transform 0.5s ease';
+  e.currentTarget.style.transform  = 'perspective(900px) rotateX(0) rotateY(0) scale3d(1,1,1)';
+  e.currentTarget.style.transition = 'transform 0.5s ease';
 };
 
-const Services = () => {
-  return (
-    <section id="services" className="py-24 bg-gradient-to-b from-barbie-pale to-barbie-cream">
-      <div className="container mx-auto px-6">
+const Drips = () => (
+  <div className="relative w-full pointer-events-none" style={{ height: '24px' }} aria-hidden>
+    <div style={{ height: '1px', background: 'linear-gradient(90deg,transparent,rgba(255,20,147,0.35) 30%,rgba(255,20,147,0.35) 70%,transparent)' }}/>
+    {[5,16,27,38,49,60,71,82,92].map((l, i) => (
+      <div key={i} className="absolute top-0" style={{
+        left:`${l}%`, width:`${2 + i % 3}px`, height:`${5 + (i*4)%16}px`,
+        background:'linear-gradient(180deg,#FF1493,transparent)', borderRadius:'0 0 50% 50%',
+        opacity: 0.45 + (i * 0.05) % 0.45,
+      }}/>
+    ))}
+  </div>
+);
 
-        {/* Header */}
-        <RevealOnScroll className="text-center mb-16">
-          <p className="text-barbie-pink font-semibold text-sm uppercase tracking-widest mb-3">What I Offer</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            My <span className="text-gradient">Services</span>
-          </h2>
-          <p className="text-gray-500 max-w-xl mx-auto text-lg">
-            Each service is crafted with care, precision, and the finest products — because you deserve nothing less.
-          </p>
-        </RevealOnScroll>
+const Services = () => (
+  <section id="services" className="py-20 md:py-24 bg-ink-black relative overflow-hidden">
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, i) => (
-            <RevealOnScroll key={service.name} delay={i * 80}>
-              <div
-                onMouseMove={service.popular ? undefined : onTilt}
-                onMouseLeave={service.popular ? undefined : resetTilt}
-                className={`relative p-8 rounded-3xl border flex flex-col h-full cursor-default ${
-                  service.popular
-                    ? 'bg-barbie-gradient text-white border-transparent shadow-2xl'
-                    : 'bg-white border-barbie-blush hover:border-barbie-pink hover:shadow-xl'
-                }`}
-                style={{ willChange: 'transform' }}
-              >
-                {service.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-md whitespace-nowrap">
-                    ⭐ Most Popular
-                  </div>
-                )}
-
-                <div className="text-4xl mb-4">{service.icon}</div>
-
-                <h3 className={`font-display text-xl font-bold mb-1 ${service.popular ? 'text-white' : 'text-gray-800'}`}>
-                  {service.name}
-                </h3>
-
-                <div className={`flex items-center gap-3 text-sm mb-4 ${service.popular ? 'text-white/80' : 'text-gray-400'}`}>
-                  <span>⏱ {service.duration}</span>
-                  <span>·</span>
-                  <span className={`font-bold text-lg ${service.popular ? 'text-white' : 'text-barbie-pink'}`}>
-                    {service.price}
-                  </span>
-                </div>
-
-                <p className={`text-sm leading-relaxed mb-6 flex-grow ${service.popular ? 'text-white/90' : 'text-gray-500'}`}>
-                  {service.description}
-                </p>
-
-                <ul className="space-y-2 mb-7">
-                  {service.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className={`flex items-center gap-2 text-sm ${service.popular ? 'text-white/90' : 'text-gray-600'}`}
-                    >
-                      <span className={`font-bold ${service.popular ? 'text-white' : 'text-barbie-pink'}`}>✓</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="#contact"
-                  className={`block text-center font-bold text-sm py-3 px-6 rounded-full transition-all duration-200 mt-auto ${
-                    service.popular
-                      ? 'bg-white text-barbie-pink hover:bg-barbie-pale'
-                      : 'bg-barbie-pale text-barbie-pink border border-barbie-blush hover:bg-barbie-pink hover:text-white hover:border-transparent'
-                  }`}
-                >
-                  Book This Service
-                </a>
-              </div>
-            </RevealOnScroll>
-          ))}
-        </div>
-
-        <RevealOnScroll>
-          <p className="text-center text-gray-400 text-sm mt-12">
-            💡 Prices may vary based on nail length, condition, and design complexity.
-            Contact me for a personalised quote.
-          </p>
-        </RevealOnScroll>
+    {/* Background */}
+    <div className="absolute inset-0 pointer-events-none" aria-hidden>
+      <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,20,147,0.14) 1px, transparent 1px)', backgroundSize: '22px 22px' }}/>
+      <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'repeating-linear-gradient(-45deg,#FF1493 0px,#FF1493 1px,transparent 1px,transparent 30px)' }}/>
+      <svg className="absolute bottom-8 right-0 w-[35%] md:w-[22%]" viewBox="0 0 280 180" fill="none"
+           style={{ opacity: 0.08, animation: 'tagPulse 9s ease-in-out infinite 1s' }}>
+        <text x="5" y="150" fontFamily="'Permanent Marker',cursive" fontSize="110" fill="#FF1493"
+              transform="rotate(-5,140,90)">$$</text>
+      </svg>
+      <div className="absolute top-0 left-0 right-0 pointer-events-none">
+        <Drips />
       </div>
-    </section>
-  );
-};
+    </div>
+
+    <div className="container mx-auto px-5 relative z-10">
+
+      {/* Header */}
+      <RevealOnScroll className="text-center mb-12">
+        <SprayHeading>
+          <div className="section-tag justify-center">What I Offer</div>
+        </SprayHeading>
+        <p className="text-ink-muted max-w-sm mx-auto font-body mt-4 text-sm">
+          Premium nail work, no BS. Every service done right or not at all.
+        </p>
+      </RevealOnScroll>
+
+      {/* Cards grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        {services.map((s, i) => (
+          <RevealOnScroll key={s.name} delay={i * 65}>
+            <div
+              onMouseMove={s.hot ? undefined : onTilt}
+              onMouseLeave={s.hot ? undefined : resetTilt}
+              className={`relative p-6 flex flex-col h-full cursor-default transition-all duration-300 ${
+                s.hot ? 'card-glam-popular' : 'card-urban'
+              }`}
+              style={s.hot ? {} : { willChange: 'transform' }}
+            >
+              {s.hot && (
+                <div className="absolute -top-3 left-5 bg-neon-pink text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest"
+                     style={{ boxShadow: '0 0 14px rgba(255,20,147,0.6)' }}>
+                  ⚡ Most Wanted
+                </div>
+              )}
+
+              <div className="text-4xl mb-3">{s.icon}</div>
+
+              <h3 className={`font-display text-lg mb-1 ${s.hot ? 'text-neon-pink' : 'text-white'}`}
+                  style={s.hot ? { textShadow: '0 0 12px rgba(255,20,147,0.6)' } : {}}>
+                {s.name}
+              </h3>
+
+              <div className="flex items-center gap-3 text-xs mb-4 font-body">
+                <span className="text-ink-muted">⏱ {s.duration}</span>
+                <span className="text-ink-border">|</span>
+                <span className={`font-bold text-base ${s.hot ? 'text-neon-light' : 'text-neon-pink'}`}>{s.price}</span>
+              </div>
+
+              <p className={`text-xs leading-relaxed mb-4 flex-grow font-body ${s.hot ? 'text-white/80' : 'text-ink-muted'}`}>
+                {s.description}
+              </p>
+
+              <ul className="space-y-1.5 mb-5">
+                {s.features.map((f) => (
+                  <li key={f} className={`flex items-center gap-2 text-xs font-body ${s.hot ? 'text-white/75' : 'text-ink-muted'}`}>
+                    <span className="text-neon-pink font-bold">✓</span>{f}
+                  </li>
+                ))}
+              </ul>
+
+              <a href="#contact"
+                 className={`block text-center font-bold text-xs tracking-widest uppercase py-3 px-5 transition-all duration-200 mt-auto border ${
+                   s.hot
+                     ? 'bg-neon-pink border-neon-pink text-white hover:bg-transparent hover:text-neon-pink'
+                     : 'border-neon-pink/40 text-neon-pink hover:border-neon-pink hover:bg-neon-pink hover:text-white'
+                 }`}>
+                Book This
+              </a>
+            </div>
+          </RevealOnScroll>
+        ))}
+      </div>
+
+      <RevealOnScroll>
+        <p className="text-center text-ink-muted text-xs mt-10 font-body">
+          ★ Prices vary by nail length, condition & design. Hit me up for a custom quote.
+        </p>
+      </RevealOnScroll>
+    </div>
+
+    <div className="absolute bottom-0 left-0 right-0 pointer-events-none" aria-hidden>
+      <Drips />
+    </div>
+  </section>
+);
 
 export default Services;
