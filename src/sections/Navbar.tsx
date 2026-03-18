@@ -12,7 +12,7 @@ const WAVE_PATH =
   'C143.3,3 146.7,3 150,8 C153.3,13 156.7,13 160,8';
 
 interface NavbarProps {
-  audioRef:    React.RefObject<HTMLAudioElement>;
+  audioRef:    React.RefObject<HTMLAudioElement | null>;
   playing:     boolean;
   onToggle:    () => void;
   currentTime: number;
@@ -28,8 +28,6 @@ const Navbar = ({ playing, onToggle, currentTime, duration }: NavbarProps) => {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   const navLinks = [
     { href: '#about',        label: 'Quien Soy' },

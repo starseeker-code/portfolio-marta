@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import { Navbar, Hero, About, Services, Gallery, Testimonials, Contact, Footer } from '../sections';
 import IntroScreen from '../components/IntroScreen';
 
-const FADE_START_S  = 74;   // seconds into track when fade begins
-const FADE_DURATION = 10000; // ms
+const FADE_START_S  = 72;   // seconds into track when fade begins
+const FADE_DURATION = 6000; // ms
 
 const LandingPage = () => {
   const audioRef       = useRef<HTMLAudioElement>(null);

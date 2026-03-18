@@ -4,7 +4,7 @@ import GraffitiMarta from './GraffitiMarta';
 type Phase = 'waiting' | 'active' | 'exiting' | 'done';
 
 interface Props {
-  audioRef: React.RefObject<HTMLAudioElement>;
+  audioRef: React.RefObject<HTMLAudioElement | null>;
   onPlay: () => void;
   onReveal: () => void;
   onDone: () => void;
